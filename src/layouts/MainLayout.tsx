@@ -5,11 +5,9 @@ import type { NavItems } from "../types";
 import { useMemo, useState } from "react";
 
 const navItems: NavItems[] = [
-    { id: 0, name: "Colaboraciones", isSelected: false },
-    { id: 1, name: "Portafolio", isSelected: false },
-    { id: 2, name: "Sobre mi", isSelected: true },
-    { id: 3, name: "Contacto", isSelected: false },
-    { id: 4, name: "Reseñas", isSelected: false },
+    { id: 0, name: "Portafolio", isSelected: false },
+    { id: 1, name: "Sobre mi", isSelected: true },
+    { id: 2, name: "Contacto", isSelected: false }
 ];
 
 export const MainLayout = () => {
@@ -31,19 +29,18 @@ export const MainLayout = () => {
             />
             {/* CONTENIDO PRINCIPAL */}
             <Box sx={{ flexGrow: 1, p: 4, alignContent: "center" }}>
-                {selectedTab && selectedTab.id === 1 && (
+                {selectedTab && selectedTab.id === 0 && (
                     <Portfolio />
                 )}
-                {selectedTab && selectedTab.id === 2 && (
+                {selectedTab && selectedTab.id === 1 && (
                     <AboutMe />
                 )}
-                {selectedTab && selectedTab.id === 3 && (
+                {selectedTab && selectedTab.id === 2 && (
                     <Contact />
                 )}
             </Box>
             {/* FOOTER */}
             <Footer />
         </Box>
-
     );
 }

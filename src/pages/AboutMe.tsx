@@ -11,16 +11,17 @@ export const AboutMe = () => {
             }}
         >
             {/*Foto */}
-            <Box sx={{ flexGrow: 1, p: 4 }}>
+            <Box sx={{ flexGrow: 1, p: 4, width: { xs: "100%", md: "50%" } }}>
                 <Box
                     component="img"
-                    src={"/img_prueba.jpg"}
+                    src={"/foto01.jpeg"}
                     alt="foto_01"
                     sx={{
-                        width: { xs: 380, sm: 300, md: 600 },          // o "100%"
-                        borderRadius: 5,
+                        width: "100%",
+                        height: { xs: "auto", md: "50vh" },
+                        objectFit: "cover",
                         display: "block",
-                        mx: "auto",          // centrar horizontalmente
+                        mx: "auto",
                     }}
                 />
             </Box>
@@ -92,19 +93,19 @@ export const AboutMe = () => {
                         "/zbrush_logo.png",
                     ].map((src) => (
                         <Box key={src} sx={{ flexGrow: 1, p: 4 }}>
-                        <Box
-                            component="img"
-                            src={src}
-                            alt="logo"
-                            sx={{
-                                width: 100,
-                                height: 100,
-                                objectFit: "contain",
-                                borderRadius: 5,
-                                display: "block",
-                                mx: "auto",
-                            }}
-                        />
+                            <Box
+                                component="img"
+                                src={src}
+                                alt="logo"
+                                sx={{
+                                    width: 100,
+                                    height: 100,
+                                    objectFit: "contain",
+                                    borderRadius: 5,
+                                    display: "block",
+                                    mx: "auto",
+                                }}
+                            />
                         </Box>
                     ))}
                 </Box>

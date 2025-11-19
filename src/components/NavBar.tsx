@@ -57,7 +57,7 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
     <>
       <Box sx={{ display: "flex", mb: 15 }}>
         <CssBaseline />
-        <AppBar component="nav" sx={{ padding: "18px 0 18px 0" }}>
+        <AppBar component="nav" sx={{ padding: "18px 0 18px 0", backgroundColor: "#1c1c1c" }}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -68,34 +68,47 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "100%",
+                padding: "0 30px 0 30px"
+              }}
             >
-              {"[Logo]"}
-            </Typography>
-            <Box sx={{ display: { xs: "none", sm: "block", gap: 2 } }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item.id}
-                  sx={{ 
-                    color: item.isSelected ? "#000" : "#fff",
-                    backgroundColor: item.isSelected ? "#fff" : "none"
-                  }}
-                  onClick={() => setSelectedTab(prev => {
-                    const prevTabs = [...prev]
-                    return prevTabs.map(tab => {
-                      tab.isSelected = tab.id === item.id ? true : false;
-                      return tab
-                    })
-                  })}
-                >
-                  <Typography variant="body1" fontWeight={700}>
-                    {item.name}
-                  </Typography>
-                </Button>
-              ))}
+              <Box
+                component="img"
+                src={"/logo.png"}
+                alt="foto_01"
+                sx={{
+                  width: { xs: 150, sm: 150, md: 150 },
+                  borderRadius: 5,
+                  display: "block"
+                }}
+              />
+              <Box sx={{ display: { xs: "none", sm: "block", gap: 2 } }}>
+                {navItems.map((item) => (
+                  <Button
+                    key={item.id}
+                    sx={{ 
+                      color: item.isSelected ? "#000" : "#fff",
+                      backgroundColor: item.isSelected ? "#fff" : "none"
+                    }}
+                    onClick={() => setSelectedTab(prev => {
+                      const prevTabs = [...prev]
+                      return prevTabs.map(tab => {
+                        tab.isSelected = tab.id === item.id ? true : false;
+                        return tab
+                      })
+                    })}
+                  >
+                    <Typography variant="body1" fontWeight={700}>
+                      {item.name}
+                    </Typography>
+                  </Button>
+                ))}
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>
@@ -106,7 +119,7 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
             sx={{
               display: { xs: "block", sm: "none" },

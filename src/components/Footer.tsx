@@ -70,9 +70,6 @@ export const Footer = () => {
     
               <Stack direction={{ xs: "column", sm: "column", md:"row" }} spacing={2}>
                 <Link href="#" color="inherit" underline="hover">
-                  Colaboraciones
-                </Link>
-                <Link href="#" color="inherit" underline="hover">
                   Portafolio
                 </Link>
                 <Link href="#" color="inherit" underline="hover">
@@ -80,9 +77,6 @@ export const Footer = () => {
                 </Link>
                 <Link href="#" color="inherit" underline="hover">
                   Contacto
-                </Link>
-                <Link href="#" color="inherit" underline="hover">
-                  Reseñas
                 </Link>
               </Stack>
             </Container>
