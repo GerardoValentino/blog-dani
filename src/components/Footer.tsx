@@ -7,10 +7,8 @@ import {
     Link,
   } from "@mui/material";
   import FacebookIcon from "@mui/icons-material/Facebook";
-  import TwitterIcon from "@mui/icons-material/Twitter";
-  import GoogleIcon from "@mui/icons-material/Google";
-  import YouTubeIcon from "@mui/icons-material/YouTube";
   import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Instagram, WhatsApp } from "@mui/icons-material";
 
 
 export const Footer = () => {
@@ -19,31 +17,63 @@ export const Footer = () => {
           {/* parte de arriba */}
           <Box sx={{ py: 6 }}>
             <Container maxWidth="md" sx={{ textAlign: "center" }}>
-              <Typography variant="h4" gutterBottom>
-                {"[Logo]"}
-              </Typography>
+              <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mb: 2 }}>
+                <Box
+                  component="img"
+                  src={"/logo.png"}
+                  alt="foto_01"
+                  sx={{
+                    width: { xs: 150, sm: 150, md: 150 },
+                    borderRadius: 5,
+                    display: "block"
+                  }}
+                />
+              </Box>
     
               <Typography
                 variant="body1"
                 sx={{ maxWidth: 600, mx: "auto", mb: 3 }}
               >
-                {"[Descripcion o informacion de contacto]"}
+                Amo el diseño y su poder para transmitir emociones.
+                Como diseñadora gráfica, busco crear piezas que reflejen autenticidad, estilo y personalidad.
+                Cada color, forma y detalle cuenta una historia única.
               </Typography>
     
               <Stack direction="row" spacing={2} justifyContent="center">
-                <IconButton color="inherit">
+                <IconButton 
+                  color="inherit"
+                  aria-label="Instagram"
+                  href="https://www.instagram.com/daniela_studio.mx?igsh=M282bThuOWxiam0y&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram />
+                </IconButton>
+                <IconButton 
+                  color="inherit"
+                  aria-label="Facebook"
+                  href="https://www.facebook.com/share/1DRiTxMSnH/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FacebookIcon />
                 </IconButton>
-                <IconButton color="inherit">
-                  <TwitterIcon />
+                <IconButton 
+                  color="inherit"
+                  aria-label="WhatsApp"
+                  href="https://wa.me/523151257304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsApp />
                 </IconButton>
-                <IconButton color="inherit">
-                  <GoogleIcon />
-                </IconButton>
-                <IconButton color="inherit">
-                  <YouTubeIcon />
-                </IconButton>
-                <IconButton color="inherit">
+                <IconButton 
+                  color="inherit"
+                  aria-label="LinkedIn"
+                  href="https://www.linkedin.com/in/daniela-ortiz-666bb4371?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <LinkedInIcon />
                 </IconButton>
               </Stack>

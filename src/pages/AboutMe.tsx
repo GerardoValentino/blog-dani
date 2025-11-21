@@ -7,24 +7,32 @@ export const AboutMe = () => {
                 display: "flex",
                 flexDirection: { xs: "column", sm: "column", md: "row" },
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
             }}
         >
             {/*Foto */}
-            <Box sx={{ flexGrow: 1, p: 4, width: { xs: "100%", md: "50%" } }}>
+            <Box 
+                sx={{ 
+                    flexGrow: 1, 
+                    p: 0, 
+                    width: { xs: "100%", md: "100%" },
+                }}
+            >
                 <Box
                     component="img"
                     src={"/foto01.jpeg"}
                     alt="foto_01"
                     sx={{
-                        width: "100%",
-                        height: { xs: "auto", md: "50vh" },
+                        width: 800,
+                        height: { xs: "auto", md: 1000 },
                         objectFit: "cover",
                         display: "block",
                         mx: "auto",
+                        opacity: 0.5,
                     }}
                 />
             </Box>
+
             {/*Descripcion */}
             <Box
                 sx={{
@@ -39,14 +47,15 @@ export const AboutMe = () => {
                     sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "center",
+                        alignItems: "flex-start",
+                        width: "50%",
                         gap: 2
                     }}
                 >
-                    <Typography variant="h1" fontWeight={700} textAlign={"center"}>
+                    <Typography variant="h1" fontWeight={700}>
                         Un poco de mi
                     </Typography>
-                    <Typography variant={"h3"} fontWeight={500} textAlign={"center"}>
+                    <Typography variant={"h3"} fontWeight={500}>
                         Soy diseñadora gráfica con un enfoque en la creacion visual y la comunicacion estetica.
                         Me apasiona transformar ideas en diseños que conecten, transmitan y destaquen por su identidad.
                         Disfruto experimentar con el color, la composición y las formas para construir proyectos con propósito.
@@ -58,14 +67,15 @@ export const AboutMe = () => {
                     sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "center",
+                        alignItems: "flex-start",
+                        width: "50%",
                         gap: 2
                     }}
                 >
-                    <Typography variant="h1" fontWeight={700} textAlign={"center"}>
+                    <Typography variant="h1" fontWeight={700}>
                         Habilidades
                     </Typography>
-                    <Typography variant="h3" fontWeight={500} textAlign={"center"}>
+                    <Typography variant="h3" fontWeight={500}>
                         Tengo experiencia en branding, diseño editorial, edición de video y animación.
                         Domino herramientas como Illustrator, Photoshop, Premiere Pro, After Effects, InDesign, Lightroom, Figma y ZBrush.
                         Soy creativa, detallista y me guista trabajar en proyectos que mezclen estética y funcionalidad.
@@ -82,32 +92,21 @@ export const AboutMe = () => {
                         gap: 2,
                     }}
                 >
-                    {[
-                        "/adobe_illustrator_logo.png",
-                        "/adobe_premiere_logo.png",
-                        "/after_effects_logo.png",
-                        "/figma_logo.png",
-                        "/indesign_logo.png",
-                        "/lightroom_logo.png",
-                        "/photoshop_logo.jpg",
-                        "/zbrush_logo.png",
-                    ].map((src) => (
-                        <Box key={src} sx={{ flexGrow: 1, p: 4 }}>
-                            <Box
-                                component="img"
-                                src={src}
-                                alt="logo"
-                                sx={{
-                                    width: 100,
-                                    height: 100,
-                                    objectFit: "contain",
-                                    borderRadius: 5,
-                                    display: "block",
-                                    mx: "auto",
-                                }}
-                            />
-                        </Box>
-                    ))}
+                    <Box sx={{ flexGrow: 1, p: 0 }}>
+                        <Box
+                            component="img"
+                            src={"./iconos.png"}
+                            alt="logo"
+                            sx={{
+                                width: 500,
+                                height: 80,
+                                objectFit: "contain",
+                                borderRadius: 5,
+                                display: "block",
+                                mx: "auto",
+                            }}
+                        />
+                    </Box>
                 </Box>
             </Box>
         </Box>

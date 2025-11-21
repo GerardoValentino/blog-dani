@@ -55,7 +55,7 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
   
   return (
     <>
-      <Box sx={{ display: "flex", mb: 15 }}>
+      <Box sx={{ display: "flex", mb: 10 }}>
         <CssBaseline />
         <AppBar component="nav" sx={{ padding: "18px 0 18px 0", backgroundColor: "#1c1c1c" }}>
           <Toolbar>

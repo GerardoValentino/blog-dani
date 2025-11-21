@@ -28,7 +28,7 @@ export const MainLayout = () => {
                 setSelectedTab={setSelectedTab}
             />
             {/* CONTENIDO PRINCIPAL */}
-            <Box sx={{ flexGrow: 1, p: 4, alignContent: "center" }}>
+            <Box sx={{ flexGrow: 1, p: 0 }}>
                 {selectedTab && selectedTab.id === 0 && (
                     <Portfolio />
                 )}
