@@ -1,18 +1,11 @@
 import { Footer, NavBar } from "../components";
 import { Box } from "@mui/material";
 import { AboutMe, Contact, Portfolio } from "../pages";
-import type { NavItems } from "../types";
-import { useMemo, useState } from "react";
-
-const navItems: NavItems[] = [
-    { id: 0, name: "Portafolio", isSelected: false },
-    { id: 1, name: "Sobre mi", isSelected: true },
-    { id: 2, name: "Contacto", isSelected: false }
-];
+import { useMemo } from "react";
+import { useNavigationStore } from "../store/tab.store";
 
 export const MainLayout = () => {
-    const [tabs, setSelectedTab] = useState<NavItems[]>(navItems);
-
+    const { tabs } = useNavigationStore();
     const selectedTab = useMemo(() => tabs.find(tab => tab.isSelected) , [tabs]);
 
     return (
@@ -23,10 +16,7 @@ export const MainLayout = () => {
                 flexDirection: "column"
             }}
         >
-            <NavBar 
-                navItems={tabs}
-                setSelectedTab={setSelectedTab}
-            />
+            <NavBar />
             {/* CONTENIDO PRINCIPAL */}
             <Box sx={{ flexGrow: 1, p: 0 }}>
                 {selectedTab && selectedTab.id === 0 && (

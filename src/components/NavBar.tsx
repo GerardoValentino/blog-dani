@@ -15,18 +15,17 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import type { NavItems } from "../types";
+import { useNavigationStore } from "../store/tab.store";
 
 
 interface Props {
-    navItems: NavItems[];
-    setSelectedTab: React.Dispatch<React.SetStateAction<NavItems[]>>;
     window?: () => Window;
 }
 
 const drawerWidth = 240;
 
-export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
+export const NavBar = ({ window }: Props) => {
+    const { tabs, setSelectedTab } = useNavigationStore();
     const [mobileOpen, setMobileOpen] = useState(false);
   
     const handleDrawerToggle = () => {
@@ -40,7 +39,7 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
         </Typography>
         <Divider />
         <List>
-          {navItems.map((item) => (
+          {tabs.map((item) => (
             <ListItem key={item.id} disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
                 <ListItemText primary={item.name} />
@@ -84,24 +83,20 @@ export const NavBar = ({ navItems, window, setSelectedTab }: Props) => {
                 sx={{
                   width: { xs: 150, sm: 150, md: 150 },
                   borderRadius: 5,
-                  display: "block"
+                  display: "block",
+                  cursor: "pointer"
                 }}
+                onClick={() => setSelectedTab(3)}
               />
-              <Box sx={{ display: { xs: "none", sm: "block", gap: 2 } }}>
-                {navItems.map((item) => (
+              <Box sx={{ display: { xs: "none", sm: "block"}, gap: 2 }}>
+                {tabs.map((item) => (
                   <Button
                     key={item.id}
                     sx={{ 
                       color: item.isSelected ? "#000" : "#fff",
                       backgroundColor: item.isSelected ? "#fff" : "none"
                     }}
-                    onClick={() => setSelectedTab(prev => {
-                      const prevTabs = [...prev]
-                      return prevTabs.map(tab => {
-                        tab.isSelected = tab.id === item.id ? true : false;
-                        return tab
-                      })
-                    })}
+                    onClick={() => setSelectedTab(item.id)}
                   >
                     <Typography variant="body1" fontWeight={700}>
                       {item.name}
